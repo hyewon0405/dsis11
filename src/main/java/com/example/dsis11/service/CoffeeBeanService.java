@@ -18,7 +18,7 @@ public class CoffeeBeanService {
     public void saveTenCafeBeansEfficient(){
         List<CoffeeBean> coffeeBeans = new ArrayList<>();
 
-        for(int i=0;i<10;i++){
+        for(int i = 0 ; i < 10 ; i++){
             String coffeeName = "커피 이름" + i;
             int quantity = 100;
             CoffeeBean coffeeBean = new CoffeeBean(coffeeName, quantity);
