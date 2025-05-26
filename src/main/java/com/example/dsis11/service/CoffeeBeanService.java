@@ -1,11 +1,14 @@
 package com.example.dsis11.service;
 
 import com.example.dsis11.domain.CoffeeBean;
+import com.example.dsis11.dto.CoffeeBeanDto;
 import com.example.dsis11.repository.CoffeeBeanRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 
 public class CoffeeBeanService {
@@ -27,7 +30,16 @@ public class CoffeeBeanService {
         coffeeBeanRepository.saveAll(coffeeBeans);
     }
 
-    public List<CoffeeBean> getAllCoffeeBeans(){
-        return coffeeBeanRepository.findAll();
+    public List<CoffeeBeanDto> getAllCoffeeBeansDto(){
+       List<CoffeeBean> coffeeBeans = coffeeBeanRepository.findAll();
+
+        return coffeeBeans.stream()
+                    .map(coffeeBean -> new CoffeeBeanDto(coffeeBean.getId(), coffeeBean.getName(), coffeeBean.getQuantity()))
+                    .collect(Collectors.toList());
+        }
+
+
+    public void deleteCoffeeBeansEfficient(Long id){
+        coffeeBeanRepository.deleteById(id);
     }
 }
