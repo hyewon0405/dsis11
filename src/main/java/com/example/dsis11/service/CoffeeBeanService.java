@@ -3,6 +3,7 @@ package com.example.dsis11.service;
 import com.example.dsis11.domain.CoffeeBean;
 import com.example.dsis11.dto.CoffeeBeanDto;
 import com.example.dsis11.repository.CoffeeBeanRepository;
+import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class CoffeeBeanService {
     public CoffeeBeanService(CoffeeBeanRepository coffeeBeanRepository) {
         this.coffeeBeanRepository = coffeeBeanRepository;
     }
-
+    @PostConstruct
     public void saveTenCafeBeansEfficient(){
         List<CoffeeBean> coffeeBeans = new ArrayList<>();
 
