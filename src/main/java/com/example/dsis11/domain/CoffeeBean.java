@@ -19,12 +19,14 @@ public class CoffeeBean{
     private String name;
     private int quantity;
 
-    public CoffeeBean() {
 
-    }
     public CoffeeBean(String name, int quantity) {
         this.name = name;
         this.quantity = quantity;
+    }
+
+    public CoffeeBean() {
+
     }
 
 }
